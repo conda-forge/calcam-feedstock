@@ -1,6 +1,6 @@
 context:
   name: calcam
-  version: "2.16.0"
+  version: "2.16.1"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/euratom-software/${{ name }}/archive/refs/tags/${{ version }}.tar.gz
-    sha256: 5b4ecfdbd6f0a86315d4ba8a190f819bcd2cf789a5a234fa9c04dbf06c73bba8
+    sha256: 984b55bad384fa2f6141627a5e28fa6b4bd55210db649bf4cbb2a95cfe531d14
 
 build:
   noarch: python
