@@ -12,16 +12,11 @@ source:
 
 build:
   noarch: python
-  script:
-    - if: win
-      then: |
-        %PYTHON% -m pip install . -vv --no-deps --no-build-isolation
-      else: |
-        $PYTHON -m pip install . -vv --no-deps --no-build-isolation
+  script: pip install . -vv --no-deps --no-build-isolation
   python:
     entry_points:
       - calcam = calcam:start_gui
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -39,18 +34,11 @@ requirements:
     - triangle
 
 tests:
-  - script:
-      - python -c "import calcam"
-      # - python -m pip check  # Disabled because the triangle package is not recognized by pip
-    requirements:
-      run:
-        - python ${{ python_min }}.*
-        - pip
-        # qt5 is required for the OpenGL stuff
-        # https://github.com/conda-forge/opencv-feedstock/issues/401
-        - if: linux
-          then:
-            - libopencv *headless*
+  - python:
+      imports:
+        - calcam
+      pip_check: false
+      python_version: ${{ python_min }}.*
 
 about:
   homepage: http://euratom-software.github.io/calcam/html/index.html
