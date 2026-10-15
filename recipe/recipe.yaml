@@ -31,7 +31,7 @@ requirements:
     - scipy
     - vtk-base >=7,!=9.1.*
     - h5py
-    - triangle
+    - meshpy
 
 tests:
   - python:
