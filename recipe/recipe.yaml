@@ -16,7 +16,7 @@ build:
   python:
     entry_points:
       - calcam = calcam:start_gui
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -31,14 +31,16 @@ requirements:
     - scipy
     - vtk-base >=7,!=9.1.*
     - h5py
-    - triangle
+    - meshpy
 
 tests:
   - python:
       imports:
         - calcam
       pip_check: false
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
 
 about:
   homepage: http://euratom-software.github.io/calcam/html/index.html
